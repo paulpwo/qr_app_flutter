@@ -12,18 +12,43 @@ class QRsPage extends StatelessWidget {
     return BlocBuilder<QrScannerBloc, QrScannerState>(
       builder: (context, state) {
         if (state is QrScannerSuccess) {
+          if (state.scannedCodes.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.qr_code_scanner,
+                    size: 120,
+                    color: Colors.grey[400],
+                  ),
+                  const SizedBox(height: 24),
+                  Text(
+                    '¡Comienza a escanear!',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Presiona el botón + para escanear\ntus primeros códigos QR',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'QRs escaneados (${state.scannedCodes.length})',
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
                 const SizedBox(height: 16),
                 Expanded(
                   child: ListView.builder(
@@ -32,88 +57,104 @@ class QRsPage extends StatelessWidget {
                       final QrModel qr = state.scannedCodes[index];
                       return Card(
                         margin: const EdgeInsets.only(bottom: 12),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.qr_code,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: Text(
-                                      qr.resultTruncated,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
+                        child: Dismissible(
+                          key: Key(qr.id),
+                          background: Container(
+                            color: Colors.red,
+                            alignment: Alignment.centerRight,
+                            padding: const EdgeInsets.only(right: 16),
+                            child: const Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                            ),
+                          ),
+                          direction: DismissDirection.endToStart,
+                          onDismissed: (direction) {
+                            context.read<QrScannerBloc>().add(DeleteQr(qr));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.qr_code,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Text(
+                                        qr.resultTruncated,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  qr.timeAgo,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey[600],
+                                  ],
+                                ),
+                                const SizedBox(height: 8),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    qr.timeAgo,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.grey[600],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(height: 8),
-                              Row(
-                                children: [
-                                  TextButton.icon(
-                                    onPressed: () {
-                                      Clipboard.setData(
-                                        ClipboardData(text: qr.result),
-                                      );
-                                    },
-                                    icon: const Icon(Icons.copy, size: 20),
-                                    label: const Text('Copiar'),
-                                    style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 12,
-                                      ),
-                                    ),
-                                  ),
-                                  TextButton.icon(
-                                    onPressed: () {
-                                      showDialog(
-                                        context: context,
-                                        builder: (context) => AlertDialog(
-                                          title:
-                                              const Text('Contenido completo'),
-                                          content: Text(qr.result),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () =>
-                                                  Navigator.pop(context),
-                                              child: const Text('Cerrar'),
-                                            ),
-                                          ],
+                                const SizedBox(height: 8),
+                                Row(
+                                  children: [
+                                    TextButton.icon(
+                                      onPressed: () {
+                                        Clipboard.setData(
+                                          ClipboardData(text: qr.result),
+                                        );
+                                      },
+                                      icon: const Icon(Icons.copy, size: 20),
+                                      label: const Text('Copiar'),
+                                      style: TextButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12,
                                         ),
-                                      );
-                                    },
-                                    icon:
-                                        const Icon(Icons.visibility, size: 20),
-                                    label: const Text('Ver completo'),
-                                    style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 12,
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    TextButton.icon(
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => AlertDialog(
+                                            title: const Text(
+                                                'Contenido completo'),
+                                            content: Text(qr.result),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () =>
+                                                    Navigator.pop(context),
+                                                child: const Text('Cerrar'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                      icon: const Icon(Icons.visibility,
+                                          size: 20),
+                                      label: const Text('Ver completo'),
+                                      style: TextButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -126,14 +167,7 @@ class QRsPage extends StatelessWidget {
         }
 
         return const Center(
-          child: Text(
-            'No hay QRs escaneados\nPresiona el botón + para escanear',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 16,
-            ),
-          ),
+          child: CircularProgressIndicator(),
         );
       },
     );
