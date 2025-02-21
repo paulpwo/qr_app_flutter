@@ -60,7 +60,7 @@ class _BasePageState extends State<BasePage> {
           context.read<QrScannerBloc>().add(QrScanned(''));
         },
         elevation: 8,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
         child: const Icon(Icons.qr_code_scanner, size: 32),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
