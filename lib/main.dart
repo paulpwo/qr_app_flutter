@@ -8,9 +8,14 @@ import 'package:auth_biometric/auth_biometric.dart';
 import 'package:qr_scanner/qr_scanner.dart';
 import 'package:qr_app/core/presentation/bloc/theme_bloc.dart';
 import 'package:qr_app/core/services/theme_storage_service.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'scanner/domain/models/qr_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(QrModelAdapter());
+  await Hive.openBox<QrModel>(qrBoxName);
   final themeService = await ThemeStorageService.init();
   runApp(MyApp(themeService: themeService));
 }
