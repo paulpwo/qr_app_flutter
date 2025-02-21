@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_app/profile/presentation/profile_page.dart';
+import 'package:qr_secure_scanner/profile/presentation/profile_page.dart';
 import '../bloc/qr_scanner_bloc.dart';
 import '_pages/qr_page.dart';
 import 'widgets/nav_item.dart';

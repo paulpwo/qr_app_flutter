@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qr_app/login/presentation/pages/login_page.dart';
-import 'package:qr_app/scanner/presentation/pages/base_page.dart';
-import 'package:qr_app/core/presentation/pages/splash_page.dart';
+import 'package:qr_secure_scanner/login/presentation/pages/login_page.dart';
+import 'package:qr_secure_scanner/scanner/presentation/pages/base_page.dart';
+import 'package:qr_secure_scanner/core/presentation/pages/splash_page.dart';
 
 class AppRouter {
   static const String initial = '/';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:qr_app/core/router/app_router.dart';
-import 'package:qr_app/core/services/secure_storage_service.dart';
+import 'package:qr_secure_scanner/core/router/app_router.dart';
+import 'package:qr_secure_scanner/core/services/secure_storage_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_app/core/presentation/bloc/theme_bloc.dart';
+import 'package:qr_secure_scanner/core/presentation/bloc/theme_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

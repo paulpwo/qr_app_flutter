@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_app/core/router/app_router.dart';
-import 'package:qr_app/core/theme/app_theme.dart';
-import 'package:qr_app/login/presentation/bloc/biometric_bloc.dart';
-import 'package:qr_app/scanner/presentation/bloc/qr_scanner_bloc.dart';
+import 'package:qr_secure_scanner/core/router/app_router.dart';
+import 'package:qr_secure_scanner/core/theme/app_theme.dart';
+import 'package:qr_secure_scanner/login/presentation/bloc/biometric_bloc.dart';
+import 'package:qr_secure_scanner/scanner/presentation/bloc/qr_scanner_bloc.dart';
 import 'package:auth_biometric/auth_biometric.dart';
 import 'package:qr_scanner/qr_scanner.dart';
-import 'package:qr_app/core/presentation/bloc/theme_bloc.dart';
-import 'package:qr_app/core/services/theme_storage_service.dart';
+import 'package:qr_secure_scanner/core/presentation/bloc/theme_bloc.dart';
+import 'package:qr_secure_scanner/core/services/theme_storage_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'scanner/domain/models/qr_model.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qr_app/core/router/app_router.dart';
-import 'package:qr_app/core/services/secure_storage_service.dart';
+import 'package:qr_secure_scanner/core/router/app_router.dart';
+import 'package:qr_secure_scanner/core/services/secure_storage_service.dart';
 
 class SplashPage extends StatefulWidget {
   final SecureStorageService? storageService;

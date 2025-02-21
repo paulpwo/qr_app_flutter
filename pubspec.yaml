@@ -1,4 +1,4 @@
-name: qr_app
+name: qr_secure_scanner
 description: "Secure QR code scanner app"
 
 publish_to: "none"

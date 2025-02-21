@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_app/core/router/app_router.dart';
+import 'package:qr_secure_scanner/core/router/app_router.dart';
 import '../bloc/biometric_bloc.dart';
 
 extension BiometricContextX on BuildContext {

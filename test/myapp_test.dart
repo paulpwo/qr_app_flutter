@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_app/core/presentation/bloc/theme_bloc.dart';
-import 'package:qr_app/login/presentation/bloc/biometric_bloc.dart';
-import 'package:qr_app/main.dart';
-import 'package:qr_app/scanner/presentation/bloc/qr_scanner_bloc.dart';
+import 'package:qr_secure_scanner/core/presentation/bloc/theme_bloc.dart';
+import 'package:qr_secure_scanner/login/presentation/bloc/biometric_bloc.dart';
+import 'package:qr_secure_scanner/main.dart';
+import 'package:qr_secure_scanner/scanner/presentation/bloc/qr_scanner_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'mocks.mocks.dart';
 

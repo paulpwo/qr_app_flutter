@@ -8,11 +8,16 @@ import 'dart:async' as _i8;
 import 'package:auth_biometric/auth_biometric.dart' as _i4;
 import 'package:flutter_bloc/flutter_bloc.dart' as _i10;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:qr_app/core/presentation/bloc/theme_bloc.dart' as _i6;
-import 'package:qr_app/core/services/secure_storage_service.dart' as _i11;
-import 'package:qr_app/core/services/theme_storage_service.dart' as _i7;
-import 'package:qr_app/login/presentation/bloc/biometric_bloc.dart' as _i5;
-import 'package:qr_app/scanner/presentation/bloc/qr_scanner_bloc.dart' as _i3;
+import 'package:qr_secure_scanner/core/presentation/bloc/theme_bloc.dart'
+    as _i6;
+import 'package:qr_secure_scanner/core/services/secure_storage_service.dart'
+    as _i11;
+import 'package:qr_secure_scanner/core/services/theme_storage_service.dart'
+    as _i7;
+import 'package:qr_secure_scanner/login/presentation/bloc/biometric_bloc.dart'
+    as _i5;
+import 'package:qr_secure_scanner/scanner/presentation/bloc/qr_scanner_bloc.dart'
+    as _i3;
 import 'package:qr_scanner/qr_scanner.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i9;
 
