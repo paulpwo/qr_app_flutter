@@ -57,4 +57,8 @@ class QrModel {
       scannedAt: DateTime.now(),
     );
   }
+
+  get isLink {
+    return result.startsWith('http') || result.startsWith('https');
+  }
 }
