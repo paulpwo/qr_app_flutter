@@ -20,7 +20,7 @@ melos bootstrap
 dart run pigeon --input FILE_PATH
 ```
 
-## Tasks
+## Checklist
 - [x] Create a Flutter project
 - [x] Add Melos
 - [x] Add Pigeon
