@@ -1,0 +1,12 @@
+name: qr_app
+# sdkPath: .fvm/flutter_sdk
+packages:
+  - packages/*
+
+scripts:
+  bootstrap: melos bootstrap
+  analyze: melos exec -- flutter analyze
+  test: melos exec -- flutter test
+  run_qr_scanner_test_android:
+    run: melos exec -c 1 --scope="qr_scanner" -- flutter run
+    description: "Ejecuta la aplicación en un dispositivo Android"
