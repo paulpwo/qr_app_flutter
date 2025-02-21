@@ -6,14 +6,14 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color(0xFF007AFF),
+        seedColor: const Color.fromARGB(255, 222, 201, 17),
         brightness: Brightness.light,
       ),
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
-        elevation: 0,
+        elevation: 1,
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(255, 255, 252, 228),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -55,6 +55,7 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFF007AFF),
         brightness: Brightness.dark,
+        primaryFixed: const Color.fromARGB(255, 90, 99, 108),
       ),
       scaffoldBackgroundColor:
           const Color.fromARGB(255, 47, 47, 47), // Menos intenso que #121212
