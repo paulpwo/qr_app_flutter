@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../domain/models/qr_model.dart';
 import '../../bloc/qr_scanner_bloc.dart';
 
@@ -72,6 +73,29 @@ class QRsPage extends StatelessWidget {
                           onDismissed: (direction) {
                             context.read<QrScannerBloc>().add(DeleteQr(qr));
                           },
+                          confirmDismiss: (direction) async {
+                            return await showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text('Eliminar código QR'),
+                                content: const Text(
+                                  '¿Estás seguro de que deseas eliminar este código QR?',
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, false),
+                                    child: const Text('Cancelar'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, true),
+                                    child: const Text('Eliminar'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Column(
@@ -110,6 +134,42 @@ class QRsPage extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Row(
                                   children: [
+                                    // abrir enlace
+                                    if (qr.isLink)
+                                      TextButton.icon(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                              title: const Text('Abrir'),
+                                              content: Text(qr.result),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
+                                                  child: const Text('Cerrar'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                    launchUrl(
+                                                      Uri.parse(qr.result),
+                                                    );
+                                                  },
+                                                  child: const Text('Abrir'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                        icon: const Icon(Icons.link, size: 20),
+                                        label: const Text('Abrir'),
+                                        style: TextButton.styleFrom(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                          ),
+                                        ),
+                                      ),
                                     TextButton.icon(
                                       onPressed: () {
                                         Clipboard.setData(
@@ -144,7 +204,7 @@ class QRsPage extends StatelessWidget {
                                       },
                                       icon: const Icon(Icons.visibility,
                                           size: 20),
-                                      label: const Text('Ver completo'),
+                                      label: const Text('Ver'),
                                       style: TextButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 12,
