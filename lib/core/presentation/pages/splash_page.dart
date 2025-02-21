@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
 
     final isAuthenticated = await _storageService.isAuthenticated();
     if (!mounted) return;
-    
+
     if (isAuthenticated) {
       Navigator.pushReplacementNamed(context, AppRouter.scanner);
     } else {

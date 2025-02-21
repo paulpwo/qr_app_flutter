@@ -38,7 +38,8 @@ class QrScannerBloc extends Bloc<QrScannerEvent, QrScannerState> {
   }
 
   void _onDeleteQr(DeleteQr event, Emitter<QrScannerState> emit) async {
-    final qrKey = _qrBox.values.toList().indexWhere((qr) => qr.id == event.qr.id);
+    final qrKey =
+        _qrBox.values.toList().indexWhere((qr) => qr.id == event.qr.id);
     if (qrKey != -1) {
       await _qrBox.deleteAt(qrKey);
       _scannedCodes.removeWhere((qr) => qr.id == event.qr.id);
