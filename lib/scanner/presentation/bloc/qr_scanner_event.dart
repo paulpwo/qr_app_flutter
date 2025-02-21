@@ -13,3 +13,14 @@ class QrScanned extends QrScannerEvent {
   @override
   List<Object?> get props => [qrData];
 }
+
+class LoadSavedQrs extends QrScannerEvent {}
+
+class DeleteQr extends QrScannerEvent {
+  final QrModel qr;
+
+  DeleteQr(this.qr);
+
+  @override
+  List<Object?> get props => [qr];
+}
