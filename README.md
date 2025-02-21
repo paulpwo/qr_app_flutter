@@ -20,18 +20,18 @@ melos bootstrap
 dart run pigeon --input FILE_PATH
 ```
 
-## tasks
+## Tasks
 - [x] Create a Flutter project
 - [x] Add Melos
 - [x] Add Pigeon
 - [x] Setup Pigeon packages
-- [x] Create a QR code reader native plugin (android)
-- [ ] Create a QR code reader native plugin (IOS)
+- [x] Create a QR code reader native plugin (Android)
+- [ ] Create a QR code reader native plugin (iOS)
 - [x] Create a QR code Bloc and UI
-- [x] Create a Biometric native plugin (android)
-- [ ] Create a Biometric native plugin (IOS)
+- [x] Create a Biometric native plugin (Android)
+- [ ] Create a Biometric native plugin (iOS)
 - [x] Create a Biometric Bloc and UI
-- [x] Add support sucure storage for Login
+- [x] Add support secure storage for Login
 - [x] Create Splash screen & Navigation
 - [x] Add session validation on Splash screen
 - [x] Create a Home screen with Bottom Navigation
@@ -44,5 +44,6 @@ dart run pigeon --input FILE_PATH
 - [x] Add support to Hive for Storage for QR codes
 - [x] Add support delete QR codes
 - [x] Enhance the UI for the QR code Card
-- [x] Add support to delete QR code
+- [x] Add support to delete QR codes
+- [x] Add support to validate security for QR code scanned
 - [x] Other improvements
