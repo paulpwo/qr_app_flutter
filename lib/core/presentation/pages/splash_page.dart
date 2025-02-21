@@ -3,29 +3,39 @@ import 'package:qr_app/core/router/app_router.dart';
 import 'package:qr_app/core/services/secure_storage_service.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+  final SecureStorageService? storageService;
+  final Duration splashDuration;
+
+  const SplashPage({
+    super.key,
+    this.storageService,
+    this.splashDuration = const Duration(seconds: 2),
+  });
 
   @override
   State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
+  late final SecureStorageService _storageService;
+
   @override
   void initState() {
     super.initState();
+    _storageService = widget.storageService ?? SecureStorageService();
     _checkAuth();
   }
 
   Future<void> _checkAuth() async {
-    final storageService = SecureStorageService();
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(widget.splashDuration);
+    if (!mounted) return;
 
-    final isAuthenticated = await storageService.isAuthenticated();
+    final isAuthenticated = await _storageService.isAuthenticated();
+    if (!mounted) return;
+    
     if (isAuthenticated) {
-      if (!mounted) return;
       Navigator.pushReplacementNamed(context, AppRouter.scanner);
     } else {
-      if (!mounted) return;
       Navigator.pushReplacementNamed(context, AppRouter.login);
     }
   }
