@@ -1,6 +1,18 @@
+import 'package:hive/hive.dart';
+
+part 'qr_model.g.dart';
+
+const String qrBoxName = 'qrs';
+
+@HiveType(typeId: 0)
 class QrModel {
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String result;
+
+  @HiveField(2)
   final DateTime scannedAt;
 
   QrModel({
