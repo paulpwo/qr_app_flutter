@@ -47,3 +47,9 @@ dart run pigeon --input FILE_PATH
 - [x] Add support to delete QR codes
 - [x] Add support to validate security for QR code scanned
 - [x] Other improvements
+- [ ] Add Android Flavors
+
+
+## This project has the following flavors:
+production: flutter run --flavor production
+development: flutter run --flavor development
