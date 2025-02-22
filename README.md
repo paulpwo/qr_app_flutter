@@ -12,7 +12,7 @@ A Flutter project for handling and reading QR codes with native performance opti
 ## 📸 Screenshots
 | Description | Image |
 |------------|-------|
-| QR Scanner | ![QR Scanner Screen](/images/qr_scanner.png) |
+| Login View | ![QR Scanner Screen](/images/1.jpeg) |
 | History View | ![History Screen](/images/history.png) |
 | Profile Screen | ![Profile Screen](/images/profile.png) |
 | Theme Settings | ![Theme Settings](/images/theme_settings.png) |
