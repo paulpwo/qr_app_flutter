@@ -1,3 +1,7 @@
+# QR App
+
+[![Build Production APK](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml/badge.svg)](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml)
+
 # 📱 QR App
 
 A Flutter project for handling and reading QR codes with native performance optimization. 
