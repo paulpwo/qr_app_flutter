@@ -1,10 +1,15 @@
-name: Build Production APK
+name: 📱 Build Production APK
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
+# Add concurrency configuration
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -13,14 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup Flutter
+    - name: 🎯 Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.13.0'
+        flutter-version: '3.24.5'
         channel: 'stable'
 
     # Cache Pub dependencies
-    - name: Cache Pub dependencies
+    - name: 💾 Cache Pub dependencies
       uses: actions/cache@v3
       with:
         path: ${{ env.PUB_CACHE }}
@@ -28,7 +33,7 @@ jobs:
         restore-keys: ${{ runner.os }}-pub-
 
     # Cache Gradle dependencies
-    - name: Cache Gradle dependencies
+    - name: 💾 Cache Gradle dependencies
       uses: actions/cache@v3
       with:
         path: |
@@ -37,21 +42,21 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: ${{ runner.os }}-gradle-
     
-    - name: Install Melos
+    - name: 📦 Install Melos
       run: dart pub global activate melos
     
-    - name: Install dependencies
+    - name: 📥 Install dependencies
       run: |
         flutter pub get
         melos bootstrap
     
-    - name: Run tests
+    - name: 🧪 Run tests
       run: melos run test
     
-    - name: Build Production APK
+    - name: 🔨 Build Production APK
       run: flutter build apk --flavor production --release
     
-    - name: Upload APK
+    - name: 📤 Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: production-apk
