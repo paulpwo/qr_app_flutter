@@ -72,7 +72,7 @@ melos run test
 - [x] Add support to delete QR codes
 - [x] Add support to validate security for QR code scanned
 - [x] Other improvements
-- [ ] Add Android Flavors
+- [x] Add Android Flavors
 
 
 ## This project has the following flavors:
