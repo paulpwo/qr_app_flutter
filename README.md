@@ -12,12 +12,12 @@ A Flutter project for handling and reading QR codes with native performance opti
 ## 📸 Screenshots
 | Description | Image |
 |------------|-------|
-| Login View | <img src="/images/1.jpeg" width="300"/> |
-| Login View Fail | <img src="/images/2.jpeg" width="300"/> |
-| Login Code | <img src="/images/3.jpeg" width="300"/> |
-| Welcome | <img src="/images/4.jpeg" width="300"/> |
-| Qr Main View | <img src="/images/45.jpeg" width="300"/> |
-| Profile | <img src="/images/6.jpeg" width="300"/> |
+| Login View | <img src="/images/1.jpeg" width="200"/> |
+| Login View Fail | <img src="/images/2.jpeg" width="200"/> |
+| Login Code | <img src="/images/3.jpeg" width="200"/> |
+| Welcome | <img src="/images/4.jpeg" width="200"/> |
+| Qr Main View | <img src="/images/45.jpeg" width="200"/> |
+| Profile | <img src="/images/6.jpeg" width="200"/> |
 
 ## 🛠️ Tech Stack  
 - **Flutter** (Dart)  
