@@ -1,6 +1,7 @@
 # QR App
 
 [![Build Production APK](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml/badge.svg)](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml)
+[![Tests Status](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml/badge.svg?event=push&step=🧪+Run+tests)](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml)
 
 # 📱 QR App
 
