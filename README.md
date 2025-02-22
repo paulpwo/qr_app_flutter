@@ -2,6 +2,12 @@
 
 [![Build Status](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml/badge.svg?branch=main)](https://github.com/paulpwo/qr_app_flutter/actions/workflows/build_apk.yml)
 
+<!-- release tag -->
+[![Release](https://img.shields.io/github/v/release/paulpwo/qr_app_flutter)]
+https://github.com/paulpwo/qr_app_flutter/tags
+
+
+
 # 📱 QR App
 
 A Flutter project for handling and reading QR codes with native performance optimization. 
