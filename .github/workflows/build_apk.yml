@@ -91,7 +91,15 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' # Solo en main
     runs-on: ubuntu-latest
+    permissions: # Agregar permisos explícitos
+      contents: write
+      discussions: write
+    
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
       - uses: actions/download-artifact@v4
         with:
           name: production-apk
@@ -100,7 +108,14 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       
-      - name: 🏷️ Create Release
+      - name: 🏷️ Create Tag
+        run: |
+          git tag release-${{ steps.date.outputs.date }}
+          git push origin release-${{ steps.date.outputs.date }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 📦 Create Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: release-${{ steps.date.outputs.date }}
