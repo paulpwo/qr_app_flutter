@@ -52,7 +52,7 @@ jobs:
       run: flutter build apk --flavor production --release
     
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: production-apk
         path: build/app/outputs/flutter-apk/app-production-release.apk
