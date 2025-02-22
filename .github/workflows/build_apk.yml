@@ -12,7 +12,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 🎯 Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.5'
+        channel: 'stable'
+
+    - name: 📦 Install Melos
+      run: dart pub global activate melos
+    
+    - name: 📥 Install dependencies
+      run: |
+        flutter pub get
+        melos bootstrap
+    
+    - name: 🧪 Run tests
+      id: tests
+      run: melos run test
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     
     steps:
@@ -49,9 +74,6 @@ jobs:
       run: |
         flutter pub get
         melos bootstrap
-    
-    - name: 🧪 Run tests
-      run: melos run test
     
     - name: 🔨 Build Production APK
       run: flutter build apk --flavor production --release
