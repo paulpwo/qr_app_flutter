@@ -88,4 +88,3 @@ melos run test
 ## This project has the following flavors:
 production: flutter run --flavor production
 development: flutter run --flavor development
-````
