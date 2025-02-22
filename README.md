@@ -9,6 +9,15 @@ A Flutter project for handling and reading QR codes with native performance opti
 - **History Management:** Stores scanned QR codes persistently.  
 - **Clean Architecture:** Implements BLoC for state management. 
 
+## 📸 Screenshots
+| Description | Image |
+|------------|-------|
+| QR Scanner | ![QR Scanner Screen](/images/qr_scanner.png) |
+| History View | ![History Screen](/images/history.png) |
+| Profile Screen | ![Profile Screen](/images/profile.png) |
+| Theme Settings | ![Theme Settings](/images/theme_settings.png) |
+| Biometric Auth | ![Biometric Authentication](/images/biometric.png) |
+
 ## 🛠️ Tech Stack  
 - **Flutter** (Dart)  
 - **BLoC for state management**  
