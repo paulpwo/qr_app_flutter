@@ -1,12 +1,33 @@
-# qr_app
+# 📱 QR App
 
-A Flutter project for handling and reading QR codes.
+A Flutter project for handling and reading QR codes with native performance optimization. 
 
-## Requirements
-- Flutter 3.24.5
-- Melos - Monorepo management tool
-- Pigeon - Flutter plugin generator
+## 🚀 Features  
+- **QR Code Scanning:** Uses the device camera to scan QR codes efficiently.  
+- **Native Processing:** Optimized QR recognition using platform-specific code (Android/iOS).  
+- **Biometric Authentication:** Supports Face ID (iOS) and Fingerprint (Android) for secure access.  
+- **History Management:** Stores scanned QR codes persistently.  
+- **Clean Architecture:** Implements BLoC for state management. 
 
+## 🛠️ Tech Stack  
+- **Flutter** (Dart)  
+- **BLoC for state management**  
+- **Pigeon for native integration**  
+- **Melos for monorepo management**  
+- **Mockito for unit testing**  
+- **Fastlane for deployment automation**  
+
+## 📖 Setup  
+1. **Clone the repository:**  
+```sh
+git clone https://github.com/paulpwo/qr_app_flutter
+cd qr_app_flutter
+```
+
+2. **Install dependencies:**  
+```sh
+flutter pub get
+```
 2 - Activate Melos
 ```bash
 dart pub global activate melos 
@@ -19,7 +40,11 @@ melos bootstrap
 ```bash
 dart run pigeon --input FILE_PATH
 ```
-
+<!-- runr test -->
+## 🧪 Running Tests
+```sh
+melos run test
+```
 ## Checklist
 - [x] Create a Flutter project
 - [x] Add Melos
