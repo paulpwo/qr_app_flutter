@@ -10,7 +10,7 @@ A Flutter project for handling and reading QR codes with native performance opti
 - **Clean Architecture:** Implements BLoC for state management. 
 
 ## 📸 Screenshots
-| Login View | Login View Fail | Login Code |
+| | | |
 |------------|----------------|------------|
 | <img src="/images/1.jpeg" width="100"/> | <img src="/images/2.jpeg" width="100"/> | <img src="/images/3.jpeg" width="100"/> |
 | <img src="/images/4.jpeg" width="100"/> | <img src="/images/5.jpeg" width="100"/> | <img src="/images/6.jpeg" width="100"/> |
