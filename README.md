@@ -12,11 +12,12 @@ A Flutter project for handling and reading QR codes with native performance opti
 ## 📸 Screenshots
 | Description | Image |
 |------------|-------|
-| Login View | ![QR Scanner Screen](/images/1.jpeg) |
-| History View | ![History Screen](/images/history.png) |
-| Profile Screen | ![Profile Screen](/images/profile.png) |
-| Theme Settings | ![Theme Settings](/images/theme_settings.png) |
-| Biometric Auth | ![Biometric Authentication](/images/biometric.png) |
+| Login View | <img src="/images/1.jpeg" width="300"/> |
+| Login View Fail | <img src="/images/2.jpeg" width="300"/> |
+| Login Code | <img src="/images/3.jpeg" width="300"/> |
+| Welcome | <img src="/images/4.jpeg" width="300"/> |
+| Qr Main View | <img src="/images/45.jpeg" width="300"/> |
+| Profile | <img src="/images/6.jpeg" width="300"/> |
 
 ## 🛠️ Tech Stack  
 - **Flutter** (Dart)  
@@ -87,3 +88,4 @@ melos run test
 ## This project has the following flavors:
 production: flutter run --flavor production
 development: flutter run --flavor development
+````
